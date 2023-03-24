@@ -20,6 +20,7 @@ exports.register= async(req , res)=>{
       }
       return res.status(401).json({message:"user already register"})
     } catch (err) {
+        console.log(err)
         res.status(500).json({message:`register error ${err.message}`})
     }
 };
@@ -44,6 +45,7 @@ exports.loginUser=async(req,res)=>{
         await user.save();
          res.status(201).json({message:`User login successfully` ,  accessToken, refreshToken})
     } catch (err) {
+        console.log(err)
         res.status(500).json({message:`register error ${err.message}`})
     }
 }
