@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate= useNavigate()
   const isLoggedIn = localStorage.getItem('accessToken');
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
+    navigate("/register")
   };
   return (
     <nav className="flex items-center justify-between flex-wrap bg-gray-800 p-6">
@@ -29,10 +31,7 @@ const Navbar = () => {
           )}
         </div>
         {isLoggedIn && (
-          <div className="text-sm lg:flex-grow lg:text-right">
-            <span className="block mt-4 lg:inline-block lg:mt-0 text-gray-200 mr-4">
-              Welcome, {isLoggedIn}
-            </span>
+          <div className="text-sm lg:flex-grow ">
             <button onClick={handleLogout} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-4">
         Logout
       </button>

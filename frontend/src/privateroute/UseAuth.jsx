@@ -27,7 +27,7 @@ setMessage(response.data.message);
 if (err.response && err.response.status === 401) {
 try {
 const refreshToken = localStorage.getItem('refreshToken');
-const response = await axios.post('user/login', { refreshToken });
+const response = await axios.post('https://sore-pink-cockroach-hat.cyclic.app/user/login', { refreshToken });
 localStorage.setItem('accessToken', response.data.accessToken);
 setMessage('Token renewed');
 } catch (err) {

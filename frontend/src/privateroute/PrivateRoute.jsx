@@ -5,7 +5,7 @@ const PrivateRoute = ({children}) => {
     const accessToken = localStorage.getItem('accessToken');
   const isAuthenticated = !!accessToken;
   return (
-    isAuthenticated ? children : <Navigate to="/login" />
+    isAuthenticated ? children : <Navigate to="/register" />
   );
 };
 
