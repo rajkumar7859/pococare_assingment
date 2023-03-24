@@ -12,12 +12,9 @@ const authMiddleware = (req, res, next) => {
   try {
     // Verify the token using the secret key
     const decodedToken = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
-
     // Attach the user ID from the token to the request object for use in subsequent middleware
     req.userId = decodedToken.userId;
-    // res.cookie('access-token', newAccessToken, { maxAge: process.env.JWT_EXPIRES_IN, httpOnly: true });
-    // res.cookie('refresh-token', newRefreshToken, { maxAge: process.env.REFRESH_TOKEN_EXPIRES_IN, httpOnly: true });
-    // Call the next middleware
+    console.log(decodedToken)
     next();
   } catch (err) {
     // If the token is invalid, return a 401 error

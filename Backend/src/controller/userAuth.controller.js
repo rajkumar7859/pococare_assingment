@@ -40,6 +40,7 @@ exports.loginUser=async(req,res)=>{
 
         const accessToken= jwt.sign({email:email } , process.env.JWT_SECRET_KEY , {expiresIn:process.env.JWT_EXPIRES_IN})
         const refreshToken= jwt.sign({email:email} , process.env.REFRESH_TOKEN_SECRET_KEY , {expiresIn:process.env.REFRESH_TOKEN_EXPIRES_IN})
+        user.refreshToken=refreshToken
         await user.save();
          res.status(201).json({message:`User login successfully` ,  accessToken, refreshToken})
     } catch (err) {
