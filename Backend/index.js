@@ -8,7 +8,7 @@ const path = require("path");
 const authMiddleware = require("./src/middleware/authMiddleware")
 
 const app=express()
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
