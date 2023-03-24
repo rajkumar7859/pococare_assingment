@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './index.css';
 import Allroutes from './routes/Allroutes';
 
