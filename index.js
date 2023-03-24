@@ -8,7 +8,7 @@ const path = require("path");
 const authMiddleware = require("./src/middleware/authMiddleware")
 
 const app=express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
@@ -30,6 +30,6 @@ app.use("/user" , registerRouter)
 app.use("/user" , loginRouter)
 
 Connect()
-app.listen(port ,()=>{
+app.listen(port || 3000,()=>{
 console.log(`Server running on localhost:${port}`);
 })
